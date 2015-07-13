@@ -13,34 +13,179 @@
     <h4>Input your card number:</h4>
     <hr />
     @Html.ValidationSummary()
-    <div class="form-group">
-        @Html.LabelFor(m => m.PartOne, new {@class = "col-md-2 control-label"})
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PartOne, new {@class = "form-control"})
+    @*<div class="form-group">
+            @Html.LabelFor(m => m.PartOne, new {@class = "col-md-2 control-label"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PartOne, new {@class = "form-control"})
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PartTwo, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PartTwo, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PartThree, new {@class = "col-md-2 control-label"})
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PartThree, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m.PartFour, new { @class = "col-md-2 control-label" })
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.PartFour, new { @class = "form-control" })
+            </div>
+        </div>*@
+
+    <input id="cc_number" type="text" />
+    //<input id="cc_number" type="text" hidden=""/>
+    //<input type="button" value="1" onclick="addToOutput(1)"/>
+    @*<div class="btn-toolbar" role="toolbar">
+
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-default">7</button>
+                <button type="button" class="btn btn-default">4</button>
+                <button type="button" class="btn btn-default">1</button>
+            </div>
+
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-default">8</button>
+                <button type="button" class="btn btn-default">5</button>
+                <button type="button" class="btn btn-default">2</button>
+            </div>
+
+            <div class="btn-group-vertical" role="group">
+                <button type="button" class="btn btn-default">9</button>
+                <button type="button" class="btn btn-default">6</button>
+                <button type="button" class="btn btn-default">3</button>
+            </div>
+
+            <button type="button" class="btn btn-default">0</button>
+        </div>
+
+        <div class="btn-group">
+            <div class="btn-toolbar">
+                <button type="button" class="btn btn-default">7</button>
+                <button type="button" class="btn btn-default">8</button>
+            </div>
+
+            <div class="btn-toolbar">
+                <button type="button" class="btn btn-default">4</button>
+                <button type="button" class="btn btn-default">5</button>
+            </div>
+
+            <div class="btn-toolbar">
+                <button type="button" class="btn btn-default">1</button>
+                <button type="button" class="btn btn-default">2</button>
+            </div>
+
+            <div class="btn-group-justified">
+                <button type="button" class="btn btn-default">0</button>
+            </div>
+            <button type="button" class="btn btn-default">0</button>
+        </div>*@
+
+    @*<div class="row" style="margin-bottom: 15px">
+            <div class="col-md-1" >
+                <button type="button" class="btn btn-default" onclick="addToOutput(7)">7</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(8)">8</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(9)">9</button>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 15px">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(4)">4</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(5)">5</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(6)">6</button>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 15px">
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(1)">1</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(2)">2</button>
+            </div>
+            <div class="col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(3)">3</button>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 15px">
+            <div class="col-md-offset-1 col-md-1">
+                <button type="button" class="btn btn-default" onclick="addToOutput(0)">0</button>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" class="btn btn-default" value="Ok"/>
+            </div>
+        </div>*@
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(7)">7</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(8)">8</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(9)">9</button>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PartTwo, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PartTwo, new { @class = "form-control" })
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(4)">4</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(5)">5</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(6)">6</button>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PartThree, new {@class = "col-md-2 control-label"})
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PartThree, new { @class = "form-control" })
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(1)">1</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(2)">2</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(3)">3</button>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.PartFour, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.PartFour, new { @class = "form-control" })
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-offset-1 col-md-1">
+            <button type="button" class="btn btn-default" onclick="addToOutput(0)">0</button>
         </div>
     </div>
-    
+
     <div class="form-group">
         <div class="col-md-offset-2 col-md-10">
             <input type="submit" class="btn btn-default" value="Ok" />
         </div>
     </div>
+
+    <script>
+        function addToOutput(data) {
+            var input = $("#cc_number");
+            input.val(input.val() + data);
+        }
+    </script>
 }
