@@ -86,7 +86,7 @@
 
 		<div class="row" style="margin-bottom: 15px">
 			<div class="col-md-offset-1 col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(0) ">0</button>
+				<button type="button" class="btn btn-default" onclick=" addToInput(0)">0</button>
 			</div>
 		</div>
 
@@ -94,14 +94,14 @@
 
 	<div class="form-group">
 		<div class="col-md-2">
-			<input type="button" class="btn btn-default" value="Очистить" onclick="clearInputs()"/>
+			<button type="reset" class="btn btn-default" >Очистить</button>
 		</div>
 		<div class=" col-md-10">
-			<input type="submit" class="btn btn-default" value="OK"/>
+			<button type="submit" class="btn btn-default">OK</button>
 		</div>
 	</div>
 
-    <script>
+	<script>
 		function addToInput(data) {
 			// update display number
 			var display = $("#cc_number_display");
@@ -115,13 +115,8 @@
 			display.val(currentVal + data);
 
 			// update real number
-        	var real = $("#cc_number");
-            real.val(real.val() + data);
+			var real = $("#cc_number");
+			real.val(real.val() + data);
 		}
-
-		function clearInputs() {
-			$("#cc_number_display").val("");
-			$("#cc_number").val("");
-		}
-    </script>
+	</script>
 }
