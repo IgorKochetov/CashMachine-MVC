@@ -39,11 +39,12 @@
         </div>*@
 	<div class="form-group">
 		<div class="col-md-10">
-			<input id="cc_number" type="text" class="form-control"/>
+			<input id="cc_number_display" type="text" class="form-control" disabled="" maxlength="19"/>
+			<input id="cc_number" type="text"  maxlength="16"/>
 		</div>
 	</div>
     
-    //<input id="cc_number" type="text" hidden=""/>
+    
 	
 	//<div class="form-group">
 	
@@ -98,9 +99,23 @@
     </div>
 
     <script>
-        function addToOutput(data) {
-            var input = $("#cc_number");
+		function addToOutput(data) {
+			// update display number
+			var display = $("#cc_number_display");
+			var currentVal = display.val();
+			var currentLength = currentVal.length;
+			if (currentLength === 19) return; // reached max size of a 16 char card number
+
+			if (currentLength === 4 || currentLength === 9 || currentLength === 14) {
+				currentVal = currentVal + "-";
+			}
+			display.val(currentVal + data);
+
+			// update real number
+        	var input = $("#cc_number");
             input.val(input.val() + data);
+
+			
         }
     </script>
 }
