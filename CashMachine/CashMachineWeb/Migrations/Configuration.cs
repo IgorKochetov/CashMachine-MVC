@@ -1,3 +1,8 @@
+using System.Diagnostics;
+using CashMachineWeb.Models;
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+
 namespace CashMachineWeb.Migrations
 {
     using System;
@@ -15,18 +20,28 @@ namespace CashMachineWeb.Migrations
 
         protected override void Seed(CashMachineWeb.Models.CashMachineDbContext context)
         {
-            //  This method will be called after migrating to the latest version.
+			// uncomment if we need to debug Seed method while running Update from PackageManager Console
+			//if (System.Diagnostics.Debugger.IsAttached == false)
+			//	System.Diagnostics.Debugger.Launch();
 
-            //  You can use the DbSet<T>.AddOrUpdate() helper extension method 
-            //  to avoid creating duplicate seed data. E.g.
-            //
-            //    context.People.AddOrUpdate(
-            //      p => p.FullName,
-            //      new Person { FullName = "Andrew Peters" },
-            //      new Person { FullName = "Brice Lambson" },
-            //      new Person { FullName = "Rowan Miller" }
-            //    );
-            //
+	        var accountManager = new UserManager<CreditCardAccount>(new UserStore<CreditCardAccount>(context))
+	        {
+		        PasswordValidator = new MinimumLengthValidator(4)
+	        };
+
+			// we may want to protect ourselves from repeated attempts to insert already existed record
+			// on every new run of a seed method by querying for the 'Name' aka CardNumber first,
+			// but since UserManager will handle it for us and just return unsuccessful result on create
+			// we might just skip it and save us some coding
+
+			// also we don't really need a result here, again, using for debug only to see results
+
+	        var identityResult = accountManager.Create(new CreditCardAccount {UserName = "1111111111111111"}, "1111");
+			identityResult = accountManager.Create(new CreditCardAccount { UserName = "2222222222222222" }, "2222");
+			identityResult = accountManager.Create(new CreditCardAccount { UserName = "3333333333333333" }, "3333");
+			identityResult = accountManager.Create(new CreditCardAccount { UserName = "4444444444444444" }, "4444");
+
+	        
         }
     }
 }
