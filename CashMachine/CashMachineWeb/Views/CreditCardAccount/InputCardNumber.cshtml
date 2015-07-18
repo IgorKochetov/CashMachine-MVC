@@ -1,4 +1,4 @@
-﻿@model CashMachineWeb.Models.CreditCardNumber
+﻿@model CashMachineWeb.Models.CreditCardModel
 
 @{
     ViewBag.Title = "Card number input";
@@ -13,7 +13,7 @@
     <h4>Input your card number:</h4>
     <hr />
     //@Html.ValidationSummary()
-	@Html.ValidationSummary(true);
+	@Html.ValidationSummary(true)
     @*<div class="form-group">
             @Html.LabelFor(m => m.PartOne, new {@class = "col-md-2 control-label"})
             <div class="col-md-10">

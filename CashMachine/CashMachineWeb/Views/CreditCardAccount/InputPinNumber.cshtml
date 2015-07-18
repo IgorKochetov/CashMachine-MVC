@@ -1,8 +1,103 @@
-﻿@model dynamic
+﻿@model CashMachineWeb.Models.CreditCardModel
 
 @{
 	ViewBag.Title = "Pin number input";
 	//Layout = "_Layout";
 }
 
-<h2>Pin number input</h2>
+<h2>Input your pin number</h2>
+
+@using (Html.BeginForm("InputCardNumber", "CreditCardAccount", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+{
+    @Html.AntiForgeryToken()
+    <h4>Card number: @Html.DisplayTextFor(m=>m.DisplayNumber)</h4>
+    <hr />
+    //@Html.ValidationSummary()
+    @Html.ValidationSummary(true)
+
+    <div class="form-group">
+        <div class="col-md-10">
+            @Html.TextBoxFor(m => m.Pin, new {@id = "cc_pin", @class = "form-control", @type = "password"})
+            @Html.HiddenFor(m => m.DisplayNumber, new {@id = "cc_number_display", @class = "form-control", @readonly = "true"})
+            @Html.HiddenFor(m => m.ActualNumber, new {@id = "cc_number", @class = "form-control"})
+            @Html.ValidationMessageFor(m => m.ActualNumber)
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(7) ">7</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(8) ">8</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(9) ">9</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(4) ">4</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(5) ">5</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(6) ">6</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(1) ">1</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(2) ">2</button>
+        </div>
+        <div class="col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(3) ">3</button>
+        </div>
+    </div>
+
+    <div class="row" style="margin-bottom: 15px">
+        <div class="col-md-offset-1 col-md-1">
+            <button type="button" class="btn btn-default" onclick=" addToInput(0)">0</button>
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        <div class="col-md-2">
+            <button type="reset" class="btn btn-default">Очистить</button>
+        </div>
+        <div class=" col-md-10">
+            <button type="submit" class="btn btn-default">OK</button>
+        </div>
+    </div>
+
+    <script>
+        function addToInput(data) {
+            // update pin numbe input
+            var pinInput = $("#cc_pin");
+            pinInput.val(pinInput.val() + data);
+
+            //// update display number
+            //var display = $("#cc_number_display");
+            //var currentVal = display.val();
+            //var currentLength = currentVal.length;
+            //if (currentLength === 19) return; // reached max size of a 16 char card number
+
+            //if (currentLength === 4 || currentLength === 9 || currentLength === 14) {
+            //    currentVal = currentVal + "-";
+            //}
+            //display.val(currentVal + data);
+
+            //// update real number
+            //var real = $("#cc_number");
+            //real.val(real.val() + data);
+        }
+    </script>
+
+
+}

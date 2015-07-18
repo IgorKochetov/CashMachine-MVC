@@ -6,7 +6,7 @@ using System.Web;
 
 namespace CashMachineWeb.Models
 {
-    public class CreditCardNumber
+    public class CreditCardModel
     {
 		//[Required]
 		//[Display(Name = "Card number")]
@@ -37,5 +37,9 @@ namespace CashMachineWeb.Models
 		[Display(Name = "Card number")]
 		[StringLength(maximumLength: 19, ErrorMessage = "Should contain 16 digits", MinimumLength = 19)]
 		public string DisplayNumber { get; set; }
+
+        [Display(Name = "Pin number")]
+        [StringLength(maximumLength: 4)]
+        public string Pin { get; set; }
     }
 }
