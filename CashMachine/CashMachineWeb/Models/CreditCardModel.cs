@@ -39,7 +39,7 @@ namespace CashMachineWeb.Models
 		public string DisplayNumber { get; set; }
 
         [Display(Name = "Pin number")]
-        [StringLength(maximumLength: 4)]
+        [StringLength(maximumLength: 4, ErrorMessage = "Should contain 4 digits", MinimumLength = 4)]
         public string Pin { get; set; }
     }
 }

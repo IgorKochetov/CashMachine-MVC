@@ -1,8 +1,11 @@
-﻿using System.Threading.Tasks;
+﻿using System.Security.Claims;
+using System.Threading.Tasks;
+using System.Web;
 using System.Web.Mvc;
 using CashMachineWeb.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.Owin.Security;
 
 namespace CashMachineWeb.Controllers
 {
@@ -51,6 +54,30 @@ namespace CashMachineWeb.Controllers
         public ActionResult InputPinNumber()
         {
             var model = TempData["CreditCardNumber"];
+            return View(model);
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        [ValidateAntiForgeryToken]
+        public async Task<ActionResult> InputPinNumber(CreditCardModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var account = await accountManager.FindAsync(model.ActualNumber, model.Pin);
+                if (account != null)
+                {
+                    var identity = await accountManager.CreateIdentityAsync(account, DefaultAuthenticationTypes.ApplicationCookie);
+                    HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
+                    return RedirectToAction("Index", "Operations");
+                }
+                else
+                {
+                    ModelState.AddModelError("", "Invalid pin");
+                }
+            }
+
+            // If we got this far, something failed, redisplay form
             return View(model);
         }
     }

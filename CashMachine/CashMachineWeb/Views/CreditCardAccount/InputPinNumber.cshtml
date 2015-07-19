@@ -7,7 +7,7 @@
 
 <h2>Input your pin number</h2>
 
-@using (Html.BeginForm("InputCardNumber", "CreditCardAccount", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
+@using (Html.BeginForm("InputPinNumber", "CreditCardAccount", FormMethod.Post, new {@class = "form-horizontal", role = "form"}))
 {
     @Html.AntiForgeryToken()
     <h4>Card number: @Html.DisplayTextFor(m=>m.DisplayNumber)</h4>
