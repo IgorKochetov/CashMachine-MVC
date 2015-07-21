@@ -10,5 +10,15 @@ namespace CashMachineWeb.Controllers
 			var name = User.Identity.Name; // debug
 			return View();
 		}
+
+		public ActionResult Balance()
+		{
+			return View();
+		}
+
+		public ActionResult Withdraw()
+		{
+			return View();
+		}
 	}
 }

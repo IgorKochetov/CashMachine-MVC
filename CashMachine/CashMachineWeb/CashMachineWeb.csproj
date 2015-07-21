@@ -225,6 +225,8 @@
     <Content Include="Views\CreditCardAccount\InputCardNumber.cshtml" />
     <None Include="Views\CreditCardAccount\InputPinNumber.cshtml" />
     <Content Include="Views\Operations\Index.cshtml" />
+    <Content Include="Views\Operations\Balance.cshtml" />
+    <Content Include="Views\Operations\Withdraw.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
