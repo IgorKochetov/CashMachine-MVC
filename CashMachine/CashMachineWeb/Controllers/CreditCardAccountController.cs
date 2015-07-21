@@ -1,5 +1,4 @@
-﻿using System.Security.Claims;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using CashMachineWeb.Models;
@@ -19,7 +18,6 @@ namespace CashMachineWeb.Controllers
         }
         //
         // GET: /CreditCardAccount/InputCardNumber
-        [AllowAnonymous]
         public ActionResult InputCardNumber()
         {
             return View();
@@ -28,7 +26,6 @@ namespace CashMachineWeb.Controllers
         //
         // POST: /CreditCardAccount/InputCardNumber
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> InputCardNumber(CreditCardModel model)
         {
@@ -50,15 +47,17 @@ namespace CashMachineWeb.Controllers
             return View(model);
         }
 
-        [AllowAnonymous]
         public ActionResult InputPinNumber()
         {
             var model = TempData["CreditCardNumber"];
+	        if (model == null)
+	        {
+				return RedirectToAction("InputCardNumber");
+	        }
             return View(model);
         }
 
         [HttpPost]
-        [AllowAnonymous]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> InputPinNumber(CreditCardModel model)
         {
