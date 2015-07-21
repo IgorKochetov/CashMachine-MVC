@@ -17,10 +17,10 @@
 
     <div class="form-group">
         <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Pin, new {@id = "cc_pin", @class = "form-control", @type = "password"})
-            @Html.HiddenFor(m => m.DisplayNumber, new {@id = "cc_number_display", @class = "form-control", @readonly = "true"})
+            @Html.TextBoxFor(m => m.Pin, new {@id = "cc_pin", @class = "form-control", @type = "password", @readonly=""})
+            @Html.HiddenFor(m => m.DisplayNumber, new {@id = "cc_number_display", @class = "form-control"})
             @Html.HiddenFor(m => m.ActualNumber, new {@id = "cc_number", @class = "form-control"})
-            @Html.ValidationMessageFor(m => m.ActualNumber)
+            @Html.ValidationMessageFor(m => m.Pin)
         </div>
     </div>
 
@@ -79,23 +79,9 @@
     <script>
         function addToInput(data) {
             // update pin numbe input
-            var pinInput = $("#cc_pin");
+        	var pinInput = $("#cc_pin");
+	        if (pinInput.val().length === 4) return; // no more than 4 digits for the pin
             pinInput.val(pinInput.val() + data);
-
-            //// update display number
-            //var display = $("#cc_number_display");
-            //var currentVal = display.val();
-            //var currentLength = currentVal.length;
-            //if (currentLength === 19) return; // reached max size of a 16 char card number
-
-            //if (currentLength === 4 || currentLength === 9 || currentLength === 14) {
-            //    currentVal = currentVal + "-";
-            //}
-            //display.val(currentVal + data);
-
-            //// update real number
-            //var real = $("#cc_number");
-            //real.val(real.val() + data);
         }
     </script>
 

@@ -42,7 +42,7 @@
 		<div class="col-md-10">
 			@*<input id="cc_number_display" type="text" class="form-control" disabled="" maxlength="19"/>
 			<input id="cc_number" type="text"  maxlength="16"/>*@
-			@Html.TextBoxFor(m => m.DisplayNumber, new { @id = "cc_number_display", @class = "form-control", @readonly="true"})
+			@Html.TextBoxFor(m => m.DisplayNumber, new { @id = "cc_number_display", @class = "form-control", @readonly=""})
 			@Html.HiddenFor(m => m.ActualNumber, new { @id="cc_number", @class = "form-control" })
 			@Html.ValidationMessageFor(m => m.ActualNumber)
 		</div>
