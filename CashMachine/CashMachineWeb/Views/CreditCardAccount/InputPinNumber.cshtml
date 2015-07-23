@@ -2,7 +2,6 @@
 
 @{
 	ViewBag.Title = "Pin number input";
-	//Layout = "_Layout";
 }
 
 <h2>Input your pin number</h2>
@@ -12,7 +11,6 @@
     @Html.AntiForgeryToken()
     <h4>Card number: @Html.DisplayTextFor(m=>m.DisplayNumber)</h4>
     <hr />
-    //@Html.ValidationSummary()
     @Html.ValidationSummary(true)
 
     <div class="form-group">

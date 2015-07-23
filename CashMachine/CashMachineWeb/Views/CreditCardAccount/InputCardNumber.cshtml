@@ -1,104 +1,72 @@
 ﻿@model CashMachineWeb.Models.CreditCardModel
 
 @{
-    ViewBag.Title = "Card number input";
-    //Layout = "_Layout";
+	ViewBag.Title = "Card number input";
 }
 
 <h2>Input your card number</h2>
 
 @using (Html.BeginForm("InputCardNumber", "CreditCardAccount", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
 {
-    @Html.AntiForgeryToken()
-    <h4>Input your card number:</h4>
-    <hr />
-    //@Html.ValidationSummary()
+	@Html.AntiForgeryToken()
+	<hr />
 	@Html.ValidationSummary(true)
-    @*<div class="form-group">
-            @Html.LabelFor(m => m.PartOne, new {@class = "col-md-2 control-label"})
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.PartOne, new {@class = "form-control"})
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.PartTwo, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.PartTwo, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.PartThree, new {@class = "col-md-2 control-label"})
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.PartThree, new { @class = "form-control" })
-            </div>
-        </div>
-        <div class="form-group">
-            @Html.LabelFor(m => m.PartFour, new { @class = "col-md-2 control-label" })
-            <div class="col-md-10">
-                @Html.TextBoxFor(m => m.PartFour, new { @class = "form-control" })
-            </div>
-        </div>*@
+
 	<div class="form-group">
 		<div class="col-md-10">
-			@*<input id="cc_number_display" type="text" class="form-control" disabled="" maxlength="19"/>
-			<input id="cc_number" type="text"  maxlength="16"/>*@
-			@Html.TextBoxFor(m => m.DisplayNumber, new { @id = "cc_number_display", @class = "form-control", @readonly=""})
-			@Html.HiddenFor(m => m.ActualNumber, new { @id="cc_number", @class = "form-control" })
+			@Html.TextBoxFor(m => m.DisplayNumber, new { @id = "cc_number_display", @class = "form-control", @readonly = "" })
+			@Html.HiddenFor(m => m.ActualNumber, new { @id = "cc_number", @class = "form-control" })
 			@Html.ValidationMessageFor(m => m.ActualNumber)
 		</div>
 	</div>
-    
-    
-	
-	//<div class="form-group">
-	
-		<div class="row" style="margin-bottom: 15px">
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(7) ">7</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(8) ">8</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(9) ">9</button>
-			</div>
-		</div>
 
-		<div class="row" style="margin-bottom: 15px">
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(4) ">4</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(5) ">5</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(6) ">6</button>
-			</div>
-		</div>
 
-		<div class="row" style="margin-bottom: 15px">
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(1) ">1</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(2) ">2</button>
-			</div>
-			<div class="col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(3) ">3</button>
-			</div>
+	<div class="row" style="margin-bottom: 15px">
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(7) ">7</button>
 		</div>
-
-		<div class="row" style="margin-bottom: 15px">
-			<div class="col-md-offset-1 col-md-1">
-				<button type="button" class="btn btn-default" onclick=" addToInput(0)">0</button>
-			</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(8) ">8</button>
 		</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(9) ">9</button>
+		</div>
+	</div>
 
-	//</div>
+	<div class="row" style="margin-bottom: 15px">
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(4) ">4</button>
+		</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(5) ">5</button>
+		</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(6) ">6</button>
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 15px">
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(1) ">1</button>
+		</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(2) ">2</button>
+		</div>
+		<div class="col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(3) ">3</button>
+		</div>
+	</div>
+
+	<div class="row" style="margin-bottom: 15px">
+		<div class="col-md-offset-1 col-md-1">
+			<button type="button" class="btn btn-default" onclick=" addToInput(0)">0</button>
+		</div>
+	</div>
+
 
 	<div class="form-group">
 		<div class="col-md-2">
-			<button type="reset" class="btn btn-default" >Очистить</button>
+			<button type="reset" class="btn btn-default">Очистить</button>
 		</div>
 		<div class=" col-md-10">
 			<button type="submit" class="btn btn-default">OK</button>
