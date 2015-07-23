@@ -160,6 +160,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CreditCardAccountController.cs" />
+    <Compile Include="Controllers\ErrorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OperationsController.cs" />
     <Compile Include="Domain\IAccountOperationsService.cs" />
@@ -230,6 +231,7 @@
     <Content Include="Views\Operations\Balance.cshtml" />
     <Content Include="Views\Operations\Withdraw.cshtml" />
     <Content Include="Views\Shared\_NumericKeyboard.cshtml" />
+    <Content Include="Views\Error\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
