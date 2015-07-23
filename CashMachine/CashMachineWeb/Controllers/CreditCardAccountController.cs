@@ -15,7 +15,7 @@ namespace CashMachineWeb.Controllers
         public CreditCardAccountController()
         {
 			// in a real production system we would be asking for abstract dependencies in a constructor
-			// while resolving them via DI/IoC Container of choice
+			// while resolving them via DI/IoC Container of choice or manually via IControllerFactory / DefaultControllerFactory implementation / override
 			// instead of manually new-uping them in a default parameter-less constructor 
 			// to keep our controller decoupled from implementations and easily testable
             accountManager = new UserManager<CreditCardAccount>(new UserStore<CreditCardAccount>(new CashMachineDbContext()));
