@@ -39,18 +39,8 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+	@Scripts.Render("~/bundles/app")
     @RenderSection("scripts", required: false)
-    
-    <script>
-        // todo: move it out to external js file, debug/test only
-        $(document).ready(function () {
-            $("#numericKeyboard :button")
-                .click(function () {
-                    var self = $(this);
-                    console.log(self);
-                    console.log(self[0].value);
-                });
-        })
-    </script>
+   
 </body>
 </html>
