@@ -6,6 +6,11 @@
 }
 
 <h2>Balance</h2>
-<hr/>
+<hr />
 
 @Html.DisplayForModel()
+
+<div>
+	@Html.ActionLink("Back", "Index", "Operations", null, new { @class = "btn btn-default" })
+	@Html.ActionLink("Exit", "SignOut", "CreditCardAccount", null, new { @class = "btn btn-default" })
+</div>
