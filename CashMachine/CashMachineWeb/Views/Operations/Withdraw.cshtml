@@ -2,9 +2,33 @@
 
 @{
 	ViewBag.Title = "Withdraw money";
-	//Layout = "_Layout";
 }
 
 <h2>Withdraw money from account</h2>
 
-@Html.Partial("_NumericKeyboard")
+@using (Html.BeginForm("Withdraw", "Operations", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+	@Html.AntiForgeryToken()
+	<hr/>
+	@Html.ValidationSummary(true)
+
+	<div class="form-group">
+		<div class="col-md-10">
+			
+		</div>
+	</div>
+
+	@Html.Partial("_NumericKeyboard")
+
+
+	<div class="form-group">
+		<div class="col-md-2">
+			<button type="reset" class="btn btn-default">Очистить</button>
+		</div>
+		<div class=" col-md-10">
+			<button type="submit" class="btn btn-default">OK</button>
+		</div>
+	</div>
+
+}
+
