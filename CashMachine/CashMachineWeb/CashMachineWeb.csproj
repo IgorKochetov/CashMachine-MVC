@@ -176,6 +176,7 @@
     <Compile Include="Models\BalanceModel.cs" />
     <Compile Include="Models\CreditCardModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\WithdrawModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

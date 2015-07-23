@@ -1,4 +1,4 @@
-﻿@model dynamic
+﻿@model  CashMachineWeb.Models.WithdrawModel
 
 @{
 	ViewBag.Title = "Withdraw money";
@@ -10,11 +10,11 @@
 {
 	@Html.AntiForgeryToken()
 	<hr/>
-	@Html.ValidationSummary(true)
+	@Html.ValidationSummary()
 
 	<div class="form-group">
 		<div class="col-md-10">
-			
+			@Html.TextBoxFor(m => m.WithdrawAmount, new { @id = "withdrawAmountInput", @class = "form-control", @readonly = "" })
 		</div>
 	</div>
 
@@ -23,7 +23,7 @@
 
 	<div class="form-group">
 		<div class="col-md-2">
-			<button type="reset" class="btn btn-default">Очистить</button>
+			<button type="reset" class="btn btn-default">Clear</button>
 		</div>
 		<div class=" col-md-10">
 			<button type="submit" class="btn btn-default">OK</button>
