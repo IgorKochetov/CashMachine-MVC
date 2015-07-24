@@ -28,5 +28,10 @@ namespace CashMachineWeb.Domain
 				account.IsBlocked = true;
 			}
 		}
+
+		public void ProcessCorrectPinInput(CreditCardAccount account)
+		{
+			account.IncorrectPinInputCounter = 0;
+		}
 	}
 }

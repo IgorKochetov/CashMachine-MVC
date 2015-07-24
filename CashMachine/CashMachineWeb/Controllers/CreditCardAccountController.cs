@@ -82,6 +82,12 @@ namespace CashMachineWeb.Controllers
                 var account = await accountManager.FindAsync(model.ActualNumber, model.Pin);
                 if (account != null)
                 {
+					// success!
+					// reset failed attempts
+					accountSecurity.ProcessCorrectPinInput(account);
+					await accountManager.UpdateAsync(account); // for simplicity's-sake we won't check for success of the operation here, just hoping for the best :)
+
+					// sign-in account
                     var identity = await accountManager.CreateIdentityAsync(account, DefaultAuthenticationTypes.ApplicationCookie);
                     HttpContext.GetOwinContext().Authentication.SignIn(new AuthenticationProperties(), identity);
                     return RedirectToAction("Index", "Operations");
@@ -92,12 +98,11 @@ namespace CashMachineWeb.Controllers
 	            if (account != null)
 	            {
 					accountSecurity.ProcessIncorrectPinInput(account);
-					
 					await accountManager.UpdateAsync(account); // for simplicity's-sake we won't check for success of the operation here, just hoping for the best :)
 
 		            if (account.IsBlocked)
 		            {
-			            RedirectToError(
+			            return RedirectToError(
 				            string.Format("Incorrect PIN input attempts exceeded. Account for the card {0} has been blocked",
 					            account.UserName));
 		            }

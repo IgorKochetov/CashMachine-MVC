@@ -38,11 +38,38 @@ namespace CashMachineWeb.Tests
 		{
 			// arrange
 			var sut = new AccountSecurityManager(allowed);
-			CreditCardAccount account = new CreditCardAccount { IncorrectPinInputCounter = counter };
+			CreditCardAccount account = new CreditCardAccount { IncorrectPinInputCounter = counter, IsBlocked = false};
 			// act
 			sut.ProcessIncorrectPinInput(account);
 			// assert
 			account.IsBlocked.ShouldBeEquivalentTo(shouldBeBlocked);
+		}
+
+		[TestCase(0)]
+		[TestCase(1)]
+		[TestCase(3)]
+		public void ProcessCorrectInput_ShouldResetCounterToZero(byte initialCounterValue)
+		{
+			// arrange
+			var sut = new AccountSecurityManager();
+			CreditCardAccount account = new CreditCardAccount { IncorrectPinInputCounter = initialCounterValue };
+			// act
+			sut.ProcessCorrectPinInput(account);
+			// assert
+			account.IncorrectPinInputCounter.ShouldBeEquivalentTo(0);
+		}
+
+		[TestCase(true)]
+		[TestCase(false)]
+		public void ProcessCorrectInput_ShouldNotChangeIsBlocked(bool initialIsBlockedValue)
+		{
+			// arrange
+			var sut = new AccountSecurityManager();
+			CreditCardAccount account = new CreditCardAccount { IsBlocked = initialIsBlockedValue };
+			// act
+			sut.ProcessCorrectPinInput(account);
+			// assert
+			account.IsBlocked.ShouldBeEquivalentTo(initialIsBlockedValue);
 		}
     }
 }
