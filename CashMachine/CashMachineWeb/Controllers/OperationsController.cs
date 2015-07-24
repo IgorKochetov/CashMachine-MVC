@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Web.Mvc;
+using CashMachineWeb.Database;
 using CashMachineWeb.Domain;
 using CashMachineWeb.Models;
 
@@ -15,7 +16,7 @@ namespace CashMachineWeb.Controllers
 			// while resolving them via DI/IoC Container of choice or manually via IControllerFactory / DefaultControllerFactory implementation / override
 			// instead of manually new-uping them in a default parameter-less constructor 
 			// to keep our controller decoupled from implementations and easily testable
-			operationsService = new AccountOperationsServiceStub();
+			operationsService = new AccountOperationsService(new CashMachineDbContext());
 		}
 
 		public ActionResult Index()

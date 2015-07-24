@@ -167,6 +167,7 @@
     <Compile Include="Domain\AccountOperationsServiceStub.cs" />
     <Compile Include="Domain\AccountSecurityManager.cs" />
     <Compile Include="Domain\AmountExceededException.cs" />
+    <Compile Include="Domain\AccountOperationsService.cs" />
     <Compile Include="Domain\IAccountOperationsService.cs" />
     <Compile Include="Domain\IAccountSecurityManager.cs" />
     <Compile Include="Global.asax.cs">
