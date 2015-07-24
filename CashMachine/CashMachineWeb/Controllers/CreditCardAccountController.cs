@@ -122,6 +122,8 @@ namespace CashMachineWeb.Controllers
         }
 
 		[Authorize]
+		[HttpPost]
+		[ValidateAntiForgeryToken]
 	    public ActionResult SignOut()
 	    {
 		    HttpContext.GetOwinContext().Authentication.SignOut();

@@ -1,0 +1,16 @@
+﻿
+@{
+    Layout = "_Layout.cshtml";
+}
+
+@RenderBody()
+
+<div class="row">
+	<div class="col-xs-3">
+		@using (Html.BeginForm("SignOut", "CreditCardAccount", FormMethod.Post, new {  role="form" }))
+		{
+			@Html.AntiForgeryToken()
+		<button class="btn btn-default btn-block" type="submit">Exit</button>
+		}
+	</div>
+</div>
