@@ -24,6 +24,9 @@ namespace CashMachineWeb.Controllers
 
 			// also we would like to keep our 'business logic' (i.e. number of attempts allowed, when to block card, etc) away from Controller 
 			// to keep things separated, easy to maintain, test and evolve independently
+
+			// right now it is too heavy on the conditional logic (if operators), though all the navigation and talking to a database stuff could be also tested
+			// if provided mock-able abstractions instead of concrete dependencies on the Identity library
 			
             accountManager = new UserManager<CreditCardAccount>(new UserStore<CreditCardAccount>(new CashMachineDbContext()));
 			accountSecurity = new AccountSecurityManager();
