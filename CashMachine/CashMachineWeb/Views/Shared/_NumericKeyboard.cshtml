@@ -1,47 +1,59 @@
 ﻿<div id="numericKeyboard">
-
+	@* upper row *@
     <div class="row" style="margin-bottom: 15px">
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >7</button>
+			<input type="button" class="btn btn-default" value="7" />
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >8</button>
+			<input type="button" class="btn btn-default" value="8" />
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >9</button>
+			<input type="button" class="btn btn-default" value="9" />
         </div>
     </div>
 
-    <div class="row" style="margin-bottom: 15px">
+	@* middle row *@
+	<div class="row" style="margin-bottom: 15px">
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >4</button>
+			<input type="button" class="btn btn-default" value="4" />
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >5</button>
+			<input type="button" class="btn btn-default" value="5" />
         </div>
         <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >6</button>
-        </div>
-    </div>
-
-    <div class="row" style="margin-bottom: 15px">
-        <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >1</button>
-        </div>
-        <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >2</button>
-        </div>
-        <div class="col-xs-1">
-            <button type="button" class="btn btn-default" >3</button>
+			<input type="button" class="btn btn-default" value="6" />
         </div>
     </div>
 
-    <div class="row" style="margin-bottom: 15px">
+	@* lower row *@
+	<div class="row" style="margin-bottom: 15px">
+        <div class="col-xs-1">
+			<input type="button" class="btn btn-default" value="1" />
+        </div>
+        <div class="col-xs-1">
+			<input type="button" class="btn btn-default" value="2" />
+        </div>
+        <div class="col-xs-1">
+			<input type="button" class="btn btn-default" value="3" />
+        </div>
+    </div>
+
+	@* zero*@
+	<div class="row" style="margin-bottom: 15px">
         <div class="col-xs-offset-1 col-sm-offset-1 col-xs-1">
             @*<button type="button" class="btn btn-default">0</button>*@
-            <input type="button" class="btn btn-default" value="0"/>
+            <input type="button" class="btn btn-default" value="0" />
         </div>
     </div>
 
-    
+	@* control buttons *@
+	<div class="form-group">
+		<div class="col-md-2">
+			<button type="reset" class="btn btn-default">Clear</button>
+		</div>
+		<div class=" col-md-10">
+			<button type="submit" class="btn btn-default">OK</button>
+		</div>
+	</div>
+
 </div>
