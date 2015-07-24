@@ -5,6 +5,8 @@ VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashMachineWeb", "CashMachineWeb\CashMachineWeb.csproj", "{879215C3-CFDF-4476-8AB7-E80A3BA20DF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CashMachineWeb.Tests", "CashMachineWeb.Tests\CashMachineWeb.Tests.csproj", "{E59C3C6F-6C52-42BC-A065-99B28B3F252B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{879215C3-CFDF-4476-8AB7-E80A3BA20DF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{879215C3-CFDF-4476-8AB7-E80A3BA20DF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{879215C3-CFDF-4476-8AB7-E80A3BA20DF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E59C3C6F-6C52-42BC-A065-99B28B3F252B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E59C3C6F-6C52-42BC-A065-99B28B3F252B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E59C3C6F-6C52-42BC-A065-99B28B3F252B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E59C3C6F-6C52-42BC-A065-99B28B3F252B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

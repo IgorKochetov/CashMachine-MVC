@@ -4,11 +4,26 @@ namespace CashMachineWeb.Domain
 {
 	public class AccountSecurityManager : IAccountSecurityManager
 	{
-		private const byte IncorrectNumberOfPinInputsAllowed = 3;
+		private readonly byte incorrectNumberOfPinInputsAllowed;
+
+		public AccountSecurityManager(byte incorrectNumberOfPinInputsAllowed)
+		{
+			this.incorrectNumberOfPinInputsAllowed = incorrectNumberOfPinInputsAllowed;
+		}
+
+		public AccountSecurityManager() : this (incorrectNumberOfPinInputsAllowed: 3)
+		{
+		}
+
+		public byte IncorrectNumberOfPinInputsAllowed
+		{
+			get { return incorrectNumberOfPinInputsAllowed; }
+		}
+
 		public void ProcessIncorrectPinInput(CreditCardAccount account)
 		{
 			account.IncorrectPinInputCounter++;
-			if (account.IncorrectPinInputCounter > IncorrectNumberOfPinInputsAllowed)
+			if (account.IncorrectPinInputCounter > incorrectNumberOfPinInputsAllowed)
 			{
 				account.IsBlocked = true;
 			}
