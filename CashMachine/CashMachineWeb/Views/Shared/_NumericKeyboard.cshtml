@@ -41,7 +41,6 @@
 	@* zero*@
 	<div class="row" style="margin-bottom: 15px">
         <div class="col-xs-offset-1 col-sm-offset-1 col-xs-1">
-            @*<button type="button" class="btn btn-default">0</button>*@
             <input type="button" class="btn btn-default" value="0" />
         </div>
     </div>
@@ -49,7 +48,11 @@
 	@* control buttons *@
 	<div class="form-group">
 		<div class="col-md-2">
-			<button type="reset" class="btn btn-default">Clear</button>
+			@* had to change type from reset to button in order to manually perform 'full reset' in javascript
+				original behavior of reset button resets only till initial state
+				which in case of form re-submission on failed validation
+				will contain data and will never be reset to 'empty' - what we need to achieve here *@
+			<button id="formFullReset" type="button" class="btn btn-default">Clear</button>
 		</div>
 		<div class=" col-md-10">
 			<button type="submit" class="btn btn-default">OK</button>

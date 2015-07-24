@@ -16,8 +16,8 @@
     <div class="form-group">
         <div class="col-md-10">
             @Html.PasswordFor(m => m.Pin, new {@id = "cc_pin", @class = "form-control", @readonly=""})
-            @Html.HiddenFor(m => m.DisplayNumber, new {@id = "cc_number_display", @class = "form-control"})
-            @Html.HiddenFor(m => m.ActualNumber, new {@id = "cc_number", @class = "form-control"})
+            @Html.HiddenFor(m => m.DisplayNumber)
+            @Html.HiddenFor(m => m.ActualNumber)
             @Html.ValidationMessageFor(m => m.Pin)
         </div>
     </div>

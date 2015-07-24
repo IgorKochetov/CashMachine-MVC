@@ -5,6 +5,13 @@
 			
 			produceOutput(self[0].value);
 		});
+
+	$("#formFullReset")
+		.click(function() {
+			var inputsToClear = $("input.form-control");
+			inputsToClear.val("");
+		});
+
 });
 
 function produceOutput(value) {
