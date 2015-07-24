@@ -39,7 +39,7 @@ namespace CashMachineWeb.Controllers
         // POST: /CreditCardAccount/InputCardNumber
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> InputCardNumber(CreditCardModel model)
+		public async Task<ActionResult> InputCardNumber(CreditCardNumberViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -65,17 +65,24 @@ namespace CashMachineWeb.Controllers
 
         public ActionResult InputPinNumber()
         {
-            var model = TempData["CreditCardNumber"];
-	        if (model == null)
+			var cardNumberModel = TempData["CreditCardNumber"] as CreditCardNumberViewModel;
+	        if (cardNumberModel == null)
 	        {
 				return RedirectToAction("InputCardNumber");
 	        }
+
+	        var model = new CreditCardViewModel
+	        {
+		        ActualNumber = cardNumberModel.ActualNumber,
+		        DisplayNumber = cardNumberModel.DisplayNumber
+	        };
+
             return View(model);
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> InputPinNumber(CreditCardModel model)
+		public async Task<ActionResult> InputPinNumber(CreditCardViewModel model)
         {
             if (ModelState.IsValid)
             {

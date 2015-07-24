@@ -174,7 +174,8 @@
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BalanceModel.cs" />
     <Compile Include="Models\CreditCardAccount.cs" />
-    <Compile Include="Models\CreditCardModel.cs" />
+    <Compile Include="Models\CreditCardNumberViewModel.cs" />
+    <Compile Include="Models\CreditCardViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\WithdrawModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
