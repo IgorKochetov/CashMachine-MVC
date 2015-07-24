@@ -14,17 +14,4 @@ namespace CashMachineWeb.Models
         {
         }
     }
-
-	public class CreditCardAccount : IdentityUser
-	{
-	}
-
-	public class CashMachineDbContext : IdentityDbContext<CreditCardAccount>
-	{
-		public CashMachineDbContext()
-			: base("DefaultConnection")
-		{
-			
-		}
-	}
 }
