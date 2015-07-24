@@ -1,0 +1,16 @@
+﻿@model CashMachineWeb.Models.OperationResult
+
+@{
+	ViewBag.Title = "Operation Report";
+}
+
+<h2>Operation Report</h2>
+<hr />
+
+<div class="panel">
+	@Html.DisplayForModel()
+
+	<div>
+		@Html.ActionLink("Back", "Index", "Operations", null, new { @class = "btn btn-default" })
+	</div>
+</div>

@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 using CashMachineWeb.Domain;
 using CashMachineWeb.Models;
 
@@ -16,6 +17,7 @@ namespace CashMachineWeb.Controllers
 			// to keep our controller decoupled from implementations and easily testable
 			operationsService = new AccountOperationsServiceStub();
 		}
+
 		public ActionResult Index()
 		{
 			return View();
@@ -23,8 +25,7 @@ namespace CashMachineWeb.Controllers
 
 		public ActionResult Balance()
 		{
-			var accountNumber = User.Identity.Name;
-			var balanceModel = operationsService.GetBalanceForAccount(accountNumber);
+			var balanceModel = operationsService.GetBalanceForAccount(AccountNumber);
 			return View(balanceModel);
 		}
 
@@ -39,14 +40,35 @@ namespace CashMachineWeb.Controllers
 		{
 			if (ModelState.IsValid)
 			{
-				
-				TempData["ErrorMessage"] =
-					"Your request could not be proceed. You've exceeded your account limit on that operation request";
-				return RedirectToAction("Index", "Error");
+				try
+				{
+					OperationResult operationResult = operationsService.WithdrawMoney(AccountNumber, model.WithdrawAmount);
+					TempData["OperationResult"] = operationResult;
+					return RedirectToAction("OperationReport");
+				}
+				catch (AmountExceededException exception)
+				{
+					// ideally we do some logging than display message to a user
+					TempData["ErrorMessage"] =
+						"Your request could not be proceed. You've exceeded your account limit on that operation request";
+					return RedirectToAction("Index", "Error");
+				}
+
 			}
 
-			// If we got this far, something failed, redisplay form
+			// If we got this far, validation failed, redisplay form
 			return View(model);
+		}
+
+		public ActionResult OperationReport()
+		{
+			var operationResult = TempData["OperationResult"] as OperationResult;
+			return View(operationResult);
+		}
+
+		private string AccountNumber
+		{
+			get { return User.Identity.Name; }
 		}
 	}
 }
