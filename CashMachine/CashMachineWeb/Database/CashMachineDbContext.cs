@@ -1,4 +1,5 @@
-﻿using CashMachineWeb.Models;
+﻿using System.Data.Entity;
+using CashMachineWeb.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CashMachineWeb.Database
@@ -8,7 +9,9 @@ namespace CashMachineWeb.Database
 		public CashMachineDbContext()
 			: base("DefaultConnection")
 		{
-
+            
 		}
+
+        public DbSet<OperationLog> OperationLogs { get; set; }
 	}
 }
