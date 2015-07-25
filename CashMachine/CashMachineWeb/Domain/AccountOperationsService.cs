@@ -19,13 +19,26 @@ namespace CashMachineWeb.Domain
 
 		public BalanceModel GetBalanceForAccount(string accountNumber)
 		{
+            // get balance
 			var account = dbContext.Users
 				.Single(a => a.UserName == accountNumber);
+            // log operation
+		    var timestamp = DateTime.Now; // would also abstract that away to allow unit testing and get rid of dependency on a static member touching environment
+		    var opLog = new OperationLog
+		    {
+		        AccountId = account.Id,
+		        Timestamp = timestamp,
+		        Code = OperationCode.BalanceRequest,
+		        Payload = String.Format("Balance equals {0}", account.Balance)
+		    };
+		    dbContext.OperationLogs.Add(opLog);
+		    dbContext.SaveChanges();
+            // return result
 			return new BalanceModel
 			{
 				CardNumber = accountNumber,
 				MoneyAmount = account.Balance,
-				Timestamp = DateTime.Now,
+				Timestamp = timestamp,
 			};
 		}
 
@@ -43,14 +56,26 @@ namespace CashMachineWeb.Domain
 			{
 				throw new AmountExceededException("Can't proceed withdrawal. Not enough balance left!");
 			}
-
+            // process operation
 			account.Balance -= withdrawAmount;
+
+            // log operation
+            var timestamp = DateTime.Now; // would also abstract that away to allow unit testing and get rid of dependency on a static member touching environment
+            var opLog = new OperationLog
+            {
+                AccountId = account.Id,
+                Timestamp = timestamp,
+                Code = OperationCode.MoneyWithdrawal,
+                Payload = String.Format("Withdrawal amount {0}, balance left {1}", withdrawAmount, account.Balance)
+            };
+            dbContext.OperationLogs.Add(opLog);
+            // save
 			dbContext.SaveChanges();
 
 			return new OperationResult
 			{
 				CardNumber = accountNumber,
-				Timestamp = DateTime.Now,
+				Timestamp = timestamp,
 				BalanceLeftAmount = account.Balance,
 				AmountWithdrawed = withdrawAmount
 			};
