@@ -10,13 +10,16 @@ namespace CashMachineWeb.Controllers
 	public class OperationsController : Controller
 	{
 		private readonly IAccountOperationsService operationsService;
-		public OperationsController()
+
+		public OperationsController(IAccountOperationsService operationsService)
 		{
-			// in a real production system we would be asking for abstract dependencies in a constructor
-			// while resolving them via DI/IoC Container of choice or manually via IControllerFactory / DefaultControllerFactory implementation / override
-			// instead of manually new-uping them in a default parameter-less constructor 
-			// to keep our controller decoupled from implementations and easily testable
-			operationsService = new AccountOperationsService(new CashMachineDbContext());
+			this.operationsService = operationsService;
+		}
+
+		// Bastard-Injection DI anti-pattern! Never do it in real systems, used here just for simplicity and testability
+		// asume it is not there for design and usage purposes
+		public OperationsController() : this(new AccountOperationsService(new CashMachineDbContext()))
+		{
 		}
 
 		public ActionResult Index()
