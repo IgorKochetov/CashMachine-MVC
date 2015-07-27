@@ -166,6 +166,7 @@
     <Compile Include="Domain\AmountExceededException.cs" />
     <Compile Include="Domain\AccountOperationsService.cs" />
     <Compile Include="Domain\AccountBalanceStamp.cs" />
+    <Compile Include="Domain\CreditCardAccount.cs" />
     <Compile Include="Domain\IAccountOperationsService.cs" />
     <Compile Include="Domain\IAccountSecurityManager.cs" />
     <Compile Include="Domain\OperationCode.cs" />
@@ -175,7 +176,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\CreditCardAccount.cs" />
     <Compile Include="Models\CreditCardNumberViewModel.cs" />
     <Compile Include="Models\CreditCardViewModel.cs" />
     <Compile Include="Models\WithdrawViewModel.cs" />

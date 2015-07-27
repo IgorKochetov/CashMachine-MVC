@@ -1,5 +1,4 @@
 ﻿using CashMachineWeb.Domain;
-using CashMachineWeb.Models;
 using FluentAssertions;
 using NUnit.Framework;
 

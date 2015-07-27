@@ -1,6 +1,5 @@
 ﻿using System.Data.Entity;
 using CashMachineWeb.Domain;
-using CashMachineWeb.Models;
 using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace CashMachineWeb.Database

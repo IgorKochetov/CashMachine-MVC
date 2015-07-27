@@ -1,6 +1,6 @@
 using System.Data.Entity.Migrations;
 using CashMachineWeb.Database;
-using CashMachineWeb.Models;
+using CashMachineWeb.Domain;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 
