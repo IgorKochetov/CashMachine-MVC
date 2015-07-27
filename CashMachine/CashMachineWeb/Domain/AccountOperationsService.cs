@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Linq;
 using CashMachineWeb.Database;
-using CashMachineWeb.Models;
 
 namespace CashMachineWeb.Domain
 {

@@ -1,6 +1,4 @@
-﻿using CashMachineWeb.Models;
-
-namespace CashMachineWeb.Domain
+﻿namespace CashMachineWeb.Domain
 {
 	public interface IAccountOperationsService
 	{
