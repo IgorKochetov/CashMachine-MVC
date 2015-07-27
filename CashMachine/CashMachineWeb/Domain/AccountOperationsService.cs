@@ -25,7 +25,7 @@ namespace CashMachineWeb.Domain
 		    var timestamp = DateTime.Now; // would also abstract that away to allow unit testing and get rid of dependency on a static member touching environment
 		    var opLog = new OperationLog
 		    {
-		        AccountId = account.Id,
+		        CreditCardAccountId = account.Id,
 		        Timestamp = timestamp,
 		        Code = OperationCode.BalanceRequest,
 		        Payload = String.Format("Balance equals {0}", account.Balance)
@@ -62,7 +62,7 @@ namespace CashMachineWeb.Domain
             var timestamp = DateTime.Now; // would also abstract that away to allow unit testing and get rid of dependency on a static member touching environment
             var opLog = new OperationLog
             {
-                AccountId = account.Id,
+                CreditCardAccountId = account.Id,
                 Timestamp = timestamp,
                 Code = OperationCode.MoneyWithdrawal,
                 Payload = String.Format("Withdrawal amount {0}, balance left {1}", withdrawAmount, account.Balance)

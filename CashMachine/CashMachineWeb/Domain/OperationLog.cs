@@ -7,7 +7,7 @@ namespace CashMachineWeb.Domain
     {
         public long Id { get; set; }
         [Required]
-        public string AccountId { get; set; }
+		public string CreditCardAccountId { get; set; }
         [Required]
         public DateTime Timestamp { get; set; }
         [Required]
