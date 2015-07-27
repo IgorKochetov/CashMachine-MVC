@@ -1,4 +1,10 @@
 1. Initial design considerations, decisions and tradeoffs.
-2. Database
+
+1.1 Authorization / Authentication. It was an obvious decision to use mvc authorization mechanism in order to manage access to operations via pin input. Though, it was a debate whether to use just AspNet.Identity.Core and implement everything manually (store, validator, etc), or use ready-made AspNet.Identity.EntityFramework implementation. In order to save time the decision was made to use existing implementation to get results quicker while taking advantage of well tested features, though downside of it was tie coupling to EF components everywhere (from controllers to domain) and a little bit ackward terminology match between Users/Passwords and CreditCardAccounts / Pins.
+
+1.2 EF, DI, IoC. Normally, I am building all my components using Dependency Injection technics, depending on abstractions and asking for consumers to provide implementations either manually in app root or via IoC container of choice (Autofaq, etc) in order to be able to unit test everything and compose components as we need to. Again, to save time (since that is a testing task, not a real production system) I've new-ed up all the components in Controller's constructors, acting like app roots there. Also, abstracting away database layer while using EntityFramework usually takes implementing Repository pattern (and Unit of Work pattern also), so all the services of the application talk to repositories instead of DbContexts. Again, for simplicity's sake those were omited here. However, in OperationsController I've tried to showcase that approach a little bit, by abstracting away DbContext from Controller into Service (IAccountOperationService). Again, if we would use proper DI/IoC technics here, controller would be talking exclusively to an interface not knowing about DbContext at all.
+
+2. Database.
 3. Unit testing
-4. Exception handling
+4. Logging, Exception handling
+5. Requirements
