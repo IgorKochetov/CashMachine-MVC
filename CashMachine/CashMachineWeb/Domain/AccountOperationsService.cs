@@ -17,7 +17,7 @@ namespace CashMachineWeb.Domain
 			this.dbContext = dbContext;
 		}
 
-		public BalanceModel GetBalanceForAccount(string accountNumber)
+		public AccountBalanceStamp GetBalanceForAccount(string accountNumber)
 		{
             // get balance
 			var account = dbContext.Users
@@ -34,7 +34,7 @@ namespace CashMachineWeb.Domain
 		    dbContext.OperationLogs.Add(opLog);
 		    dbContext.SaveChanges();
             // return result
-			return new BalanceModel
+			return new AccountBalanceStamp
 			{
 				CardNumber = accountNumber,
 				MoneyAmount = account.Balance,

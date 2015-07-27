@@ -1,6 +1,6 @@
-﻿using System;
+using System;
 
-namespace CashMachineWeb.Models
+namespace CashMachineWeb.Domain
 {
 	public class OperationResult
 	{

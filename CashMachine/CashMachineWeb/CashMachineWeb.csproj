@@ -166,20 +166,20 @@
     <Compile Include="Domain\AccountSecurityManager.cs" />
     <Compile Include="Domain\AmountExceededException.cs" />
     <Compile Include="Domain\AccountOperationsService.cs" />
+    <Compile Include="Domain\AccountBalanceStamp.cs" />
     <Compile Include="Domain\IAccountOperationsService.cs" />
     <Compile Include="Domain\IAccountSecurityManager.cs" />
+    <Compile Include="Domain\OperationCode.cs" />
+    <Compile Include="Domain\OperationLog.cs" />
+    <Compile Include="Domain\OperationResult.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\BalanceModel.cs" />
     <Compile Include="Models\CreditCardAccount.cs" />
     <Compile Include="Models\CreditCardNumberViewModel.cs" />
     <Compile Include="Models\CreditCardViewModel.cs" />
-    <Compile Include="Models\OperationCode.cs" />
-    <Compile Include="Models\OperationLog.cs" />
-    <Compile Include="Models\OperationResult.cs" />
-    <Compile Include="Models\WithdrawModel.cs" />
+    <Compile Include="Models\WithdrawViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>

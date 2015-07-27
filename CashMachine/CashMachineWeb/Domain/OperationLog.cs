@@ -1,7 +1,7 @@
-﻿using System;
+using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace CashMachineWeb.Models
+namespace CashMachineWeb.Domain
 {
     public class OperationLog
     {

@@ -37,13 +37,13 @@ namespace CashMachineWeb.Controllers
 
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public ActionResult Withdraw(WithdrawModel model)
+		public ActionResult Withdraw(WithdrawViewModel viewModel)
 		{
 			if (ModelState.IsValid)
 			{
 				try
 				{
-					OperationResult operationResult = operationsService.WithdrawMoney(AccountNumber, model.WithdrawAmount);
+					OperationResult operationResult = operationsService.WithdrawMoney(AccountNumber, viewModel.WithdrawAmount);
 					TempData["OperationResult"] = operationResult;
 					return RedirectToAction("OperationReport");
 				}
@@ -58,7 +58,7 @@ namespace CashMachineWeb.Controllers
 			}
 
 			// If we got this far, validation failed, redisplay form
-			return View(model);
+			return View(viewModel);
 		}
 
 		public ActionResult OperationReport()

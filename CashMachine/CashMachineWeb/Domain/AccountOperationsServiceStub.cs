@@ -5,9 +5,9 @@ namespace CashMachineWeb.Domain
 {
 	class AccountOperationsServiceStub : IAccountOperationsService
 	{
-		public BalanceModel GetBalanceForAccount(string accountNumber)
+		public AccountBalanceStamp GetBalanceForAccount(string accountNumber)
 		{
-			return new BalanceModel
+			return new AccountBalanceStamp
 			{
 				CardNumber = accountNumber,
 				MoneyAmount = 1000000,

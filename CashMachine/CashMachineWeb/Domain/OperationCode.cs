@@ -1,4 +1,4 @@
-﻿namespace CashMachineWeb.Models
+namespace CashMachineWeb.Domain
 {
     public enum OperationCode
     {
