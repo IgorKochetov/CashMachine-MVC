@@ -6,7 +6,7 @@
 
 1.3 Solution / project structure. For the real production system we would keep domain / contracts in a separate dll and database (EF stuff) in a separate dll, in order to keep our Web project conserned only about MVC infrastructure, while also allow us to independently test our domain in unit tests or database (EF, DbContexts, etc) in integration tests.
 
-2. Database. Since the choice was made to use out-of-the box Identity library for storing our Accounts, we were already given an initial database. Again, in order to save time we keep initial tables / scripts in tact to be able to quickly change things using EF Migrations and PackageManagerConsole. We extended Users/Accounts table to also store Balance and login security information and added operations table for logging user activity. No Foreign Keys were added between the two since Operations could easily be in another Database in some of the future releases and we are not planning to really query / join those tables, let alone updating them. So no real worries about integrity at this stage.
+2. Database. Since the choice was made to use out-of-the box Identity library for storing our Accounts, we were already given an initial database, though had to work on dbContext model to remove not needed tables and properly match names / constraints and add Operations list navigation property to the account which I dont necessary like.
 
 3. Unit testing. For simplicity we are not doing any integration tests here and unit-testing only handful of components. Real system would be having a much stronger test suite taking advantage of more decoupled desing throught the solution.
 
